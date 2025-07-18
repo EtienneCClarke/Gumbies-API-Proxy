@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch('vercel_endpoint_url_here') // Replace with your actual Vercel endpoint URL
+            .then(response => {
+                if (!response.ok) {
+                    // HANDLE API NOT WORKING
+                }
+                return response.json();
+            })
+            .then(json => {
+                const data = json.data;
+                document.getElementById('greenspark-impact').textContent = `🌱 ${data.trees} trees • ♻️ ${data.plastic} kg plastic • 💨 ${data.carbon} kg CO₂`;
+            })
+            .catch(error => {
+                console.error('Failed to load Greenspark stats:', error);
+            });
+    </script>
+</body>
+
+</html>
